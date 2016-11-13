@@ -94,7 +94,9 @@ class SecondViewController: UIViewController,CLLocationManagerDelegate,UINavigat
         myLocationManager = CLLocationManager()
         
         myLocationManager.delegate = self
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         // セキュリティ認証のステータスを取得.
         let status = CLLocationManager.authorizationStatus()
         print("authorizationStatus:\(status.rawValue)");
@@ -114,7 +116,7 @@ class SecondViewController: UIViewController,CLLocationManagerDelegate,UINavigat
     }
     
     //認証に変化があった際に呼ばれる
-    private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         
         print("didChangeAuthorizationStatus");
         
@@ -143,15 +145,16 @@ class SecondViewController: UIViewController,CLLocationManagerDelegate,UINavigat
     
     
     // 位置情報取得に成功したときに呼び出されるデリゲート.
-    private func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager,
+                         didUpdateLocations locations: [CLLocation]) {
         // 緯度・経度の表示.
         print(manager.location!.coordinate.latitude)
-        myLatitudeLabel.text = "hoge"
-        //myLatitudeLabel.text = "緯度：\(manager.location!.coordinate.latitude)"
+        //myLatitudeLabel.text = "hoge"
+        myLatitudeLabel.text = "緯度：\(manager.location!.coordinate.latitude)"
         myLatitudeLabel.textAlignment = .center
         print(manager.location!.coordinate.longitude)
-        myLongitudeLabel.text = "hoge"
-        //myLongitudeLabel.text = "経度：\(manager.location!.coordinate.longitude)"
+        //myLongitudeLabel.text = "hoge"
+        myLongitudeLabel.text = "経度：\(manager.location!.coordinate.longitude)"
         myLongitudeLabel.textAlignment = .center
         
         
