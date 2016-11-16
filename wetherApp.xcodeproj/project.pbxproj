@@ -14,6 +14,13 @@
 		1B3F45D51DD552D70027BC06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B3F45D31DD552D70027BC06 /* LaunchScreen.storyboard */; };
 		1B3F45E01DD552D70027BC06 /* wetherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3F45DF1DD552D70027BC06 /* wetherAppTests.swift */; };
 		1B3F45EB1DD552D70027BC06 /* wetherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3F45EA1DD552D70027BC06 /* wetherAppUITests.swift */; };
+		1B3F938C1DDABC1300CE4BE5 /* sunny.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B3F938B1DDABC1300CE4BE5 /* sunny.png */; };
+		1B3F938E1DDABD4600CE4BE5 /* clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B3F938D1DDABD4600CE4BE5 /* clouds.png */; };
+		1BCE9DF41DDB5D15005775BF /* mist.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BCE9DF31DDB5D15005775BF /* mist.png */; };
+		1BCE9DF91DDB7DBE005775BF /* para1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BCE9DF51DDB7DBE005775BF /* para1.png */; };
+		1BCE9DFA1DDB7DBE005775BF /* para2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BCE9DF61DDB7DBE005775BF /* para2.png */; };
+		1BCE9DFB1DDB7DBE005775BF /* para3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BCE9DF71DDB7DBE005775BF /* para3.png */; };
+		1BCE9DFC1DDB7DBE005775BF /* para4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BCE9DF81DDB7DBE005775BF /* para4.png */; };
 		1BD961541DD69BD0008F5A84 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD961531DD69BD0008F5A84 /* CoreImage.framework */; };
 		1BD961561DD69C00008F5A84 /* wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1BD961551DD69C00008F5A84 /* wallpaper.jpg */; };
 		1BDB7B101DD5617F0019A331 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB7B0F1DD5617F0019A331 /* SecondViewController.swift */; };
@@ -51,6 +58,13 @@
 		1B3F45E61DD552D70027BC06 /* wetherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wetherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B3F45EA1DD552D70027BC06 /* wetherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wetherAppUITests.swift; sourceTree = "<group>"; };
 		1B3F45EC1DD552D70027BC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B3F938B1DDABC1300CE4BE5 /* sunny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunny.png; sourceTree = "<group>"; };
+		1B3F938D1DDABD4600CE4BE5 /* clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clouds.png; sourceTree = "<group>"; };
+		1BCE9DF31DDB5D15005775BF /* mist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mist.png; sourceTree = "<group>"; };
+		1BCE9DF51DDB7DBE005775BF /* para1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = para1.png; sourceTree = "<group>"; };
+		1BCE9DF61DDB7DBE005775BF /* para2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = para2.png; sourceTree = "<group>"; };
+		1BCE9DF71DDB7DBE005775BF /* para3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = para3.png; sourceTree = "<group>"; };
+		1BCE9DF81DDB7DBE005775BF /* para4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = para4.png; sourceTree = "<group>"; };
 		1BD961531DD69BD0008F5A84 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		1BD961551DD69C00008F5A84 /* wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = wallpaper.jpg; path = ../../../Downloads/wallpaper.jpg; sourceTree = "<group>"; };
 		1BDB7B0F1DD5617F0019A331 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +122,13 @@
 		1B3F45C91DD552D70027BC06 /* wetherApp */ = {
 			isa = PBXGroup;
 			children = (
+				1BCE9DF51DDB7DBE005775BF /* para1.png */,
+				1BCE9DF61DDB7DBE005775BF /* para2.png */,
+				1BCE9DF71DDB7DBE005775BF /* para3.png */,
+				1BCE9DF81DDB7DBE005775BF /* para4.png */,
+				1BCE9DF31DDB5D15005775BF /* mist.png */,
+				1B3F938D1DDABD4600CE4BE5 /* clouds.png */,
+				1B3F938B1DDABC1300CE4BE5 /* sunny.png */,
 				1BD961551DD69C00008F5A84 /* wallpaper.jpg */,
 				1B3F45CA1DD552D70027BC06 /* AppDelegate.swift */,
 				1BDB7B0F1DD5617F0019A331 /* SecondViewController.swift */,
@@ -256,7 +277,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BD961561DD69C00008F5A84 /* wallpaper.jpg in Resources */,
+				1BCE9DF91DDB7DBE005775BF /* para1.png in Resources */,
+				1BCE9DFC1DDB7DBE005775BF /* para4.png in Resources */,
+				1B3F938E1DDABD4600CE4BE5 /* clouds.png in Resources */,
 				1B3F45D51DD552D70027BC06 /* LaunchScreen.storyboard in Resources */,
+				1BCE9DF41DDB5D15005775BF /* mist.png in Resources */,
+				1BCE9DFA1DDB7DBE005775BF /* para2.png in Resources */,
+				1B3F938C1DDABC1300CE4BE5 /* sunny.png in Resources */,
+				1BCE9DFB1DDB7DBE005775BF /* para3.png in Resources */,
 				1B3F45D21DD552D70027BC06 /* Assets.xcassets in Resources */,
 				1B3F45D01DD552D70027BC06 /* Main.storyboard in Resources */,
 			);

@@ -24,68 +24,119 @@ class SecondViewController: UIViewController,CLLocationManagerDelegate,UINavigat
     // 経度表示用のラベル.
     var myLongitudeLabel: UILabel!
     
-    // UIView
-    var myImageView: UIImageView!
+    // UIView系
+    //天気に画像の設定
+    var WeatherImage: UIImageView!
+    
+    //場所表示用のラベル
+    var locationLavel:UILabel!
+    
+    let bWidth: CGFloat = 200
+    let bHeight: CGFloat = 50
+    
+    
     
     override func viewDidLoad() {
         
-        // UIImageに変換.
-        let myInputUIImage: UIImage = UIImage(ciImage: myInputImage!)
         
-        // ImageView.
-        myImageView = UIImageView(frame: CGRect(x: 30, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
+        // アニメーション用の画像
+        let image1 = UIImage(named:"para1")!
+        let image2 = UIImage(named:"para2")!
+        let image3 = UIImage(named:"para3")!
+        let image4 = UIImage(named:"para4")!
         
-        // UIImageViewの生成.
-        myImageView.image = myInputUIImage
-        self.view.addSubview(myImageView)
+        // UIImage の配列を作る
+        var imageListArray :Array<UIImage> = []
+        // UIImage 各要素を追加、ちょっと冗長的ですが...
+        imageListArray.append(image1)
+        imageListArray.append(image2)
+        imageListArray.append(image3)
+        imageListArray.append(image4)
         
+        // 画像サイズ、元画像が少し小さいのでx2にしました
+        let rect = CGRect(x:0, y:0, width:image1.size.width, height:image1.size.height)
         
-        // CIFilterを生成。nameにどんなを処理するのか記入.
-        let myBlurFilter = CIFilter(name: "CIGaussianBlur")
+        // UIImageView のインスタンス生成,ダミーでimage1を指定
+        let imageView:UIImageView = UIImageView(image:image1)
+        imageView.frame = rect
         
-        // ばかし処理をいれたい画像をセット.
-        myBlurFilter!.setValue(myInputImage, forKey: kCIInputImageKey)
+        // 画像が画面中央にくるように位置合わせ
+        let screenWidth = self.view.bounds.width
+        let screenHeight = self.view.bounds.height
+        imageView.center = CGPoint(x:100, y:600)
+        // view に追加する
+        self.view.addSubview(imageView)
         
-        // フィルターを通した画像をアウトプット.
-        let myOutputImage : CIImage = myBlurFilter!.outputImage!
+        // 画像の配列をアニメーションにセット
+        imageView.animationImages = imageListArray
         
-        // UIImageに変換.
-        let myOutputUIImage: UIImage = UIImage(ciImage: myOutputImage)
+        // 1.5秒間隔
+        imageView.animationDuration = 1.5
+        // 3回繰り返し
+        imageView.animationRepeatCount = 0
+        // アニメーションを開始
+        imageView.startAnimating()
         
-        // 画像の中心をスクリーンの中心位置に設定
-        //myImageView.image = CGPoint(x:self.view.bounds.width/2, y:self.view.bounds.height/2)
+        // アニメーションを終了
+        //imageView.stopAnimating()
         
-        // 再びUIViewにセット.
-        myImageView.image = myOutputUIImage
+        // UIImageViewのx,yを設定する
+        let posX: CGFloat = (self.view.bounds.width - bWidth)/2
+        let posY: CGFloat = (self.view.bounds.height - bHeight)/2
         
-        // 再描画.
-        myImageView.setNeedsDisplay()
+        // UIImageViewを作成.
+        WeatherImage = UIImageView(frame: CGRect(x: 20, y: self.view.bounds.width/2-50, width: 100, height: 100))
+        
+        //背景画像の設定
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "wallpaper.jpg")?.draw(in: self.view.bounds)
+        let image: UIImage! = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.view.backgroundColor = UIColor(patternImage: image)
+        
+//        // UIImageに変換.
+//        let myInputUIImage: UIImage = UIImage(ciImage: myInputImage!)
+//        
+//        // ImageView.
+//        myImageView = UIImageView(frame: CGRect(x: 30, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
+//        
+//        // UIImageViewの生成.
+//        myImageView.image = myInputUIImage
+//        self.view.addSubview(myImageView)
+//        
+//        
+//        // CIFilterを生成。nameにどんなを処理するのか記入.
+//        let myBlurFilter = CIFilter(name: "CIGaussianBlur")
+//        
+//        // ばかし処理をいれたい画像をセット.
+//        myBlurFilter!.setValue(myInputImage, forKey: kCIInputImageKey)
+//        
+//        // フィルターを通した画像をアウトプット.
+//        let myOutputImage : CIImage = myBlurFilter!.outputImage!
+//        
+//        // UIImageに変換.
+//        let myOutputUIImage: UIImage = UIImage(ciImage: myOutputImage)
+//        
+//        // 画像の中心をスクリーンの中心位置に設定
+//        //myImageView.image = CGPoint(x:self.view.bounds.width/2, y:self.view.bounds.height/2)
+//        
+//        // 再びUIViewにセット.
+//        myImageView.image = myOutputUIImage
+//        
+//        // 再描画.
+//        myImageView.setNeedsDisplay()
         
         self.title = "My Second View"
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
-        // ボタンのサイズを定義.
-        let bWidth: CGFloat = 200
-        let bHeight: CGFloat = 50
-        
-        // Labelを作成.
-        let Locationlabel: UILabel = UILabel(frame: CGRect(x: 90, y: 100, width: bWidth, height: bHeight))
-        // Labelに文字を追加
-        Locationlabel.text = "hello,world"
-        //
-        // Textを中央寄せにする.
-        Locationlabel.textAlignment = NSTextAlignment.center
-        //viewに追加
-        self.view.addSubview(Locationlabel)
-        // Do any additional setup after loading the view.
+        //self.view.backgroundColor = UIColor.white
         
         // 緯度表示用のラベルを生成.
-        myLatitudeLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 30))
-        myLatitudeLabel.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height/2+100)
+        myLatitudeLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 100))
+        myLatitudeLabel.layer.position = CGPoint(x: 340, y:190)
         
         // 軽度表示用のラベルを生成.
-        myLongitudeLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 30))
-        myLongitudeLabel.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height/2+130)
+        myLongitudeLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 100))
+        myLongitudeLabel.layer.position = CGPoint(x: 340, y:220)
         
         // まだ承認が得られていない場合は、認証ダイアログを表示.
         //myLocationManager.requestWhenInUseAuthorization()
@@ -151,15 +202,73 @@ class SecondViewController: UIViewController,CLLocationManagerDelegate,UINavigat
         print(manager.location!.coordinate.latitude)
         //myLatitudeLabel.text = "hoge"
         myLatitudeLabel.text = "緯度：\(manager.location!.coordinate.latitude)"
-        myLatitudeLabel.textAlignment = .center
+        //myLatitudeLabel.textAlignment = .center
         print(manager.location!.coordinate.longitude)
         //myLongitudeLabel.text = "hoge"
         myLongitudeLabel.text = "経度：\(manager.location!.coordinate.longitude)"
-        myLongitudeLabel.textAlignment = .center
+        //myLongitudeLabel.textAlignment = .center
         
         
         self.view.addSubview(myLatitudeLabel)
         self.view.addSubview(myLongitudeLabel)
+        
+        let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?lat=\(String(manager.location!.coordinate.latitude))&lon=\(String(manager.location!.coordinate.longitude))&APPID=47a738728ecba24e1da71b745ada7b08")
+        let request = URLRequest(url:url!)
+        print(request)
+       var jsondata = (try! NSURLConnection.sendSynchronousRequest(request, returning: nil))
+        let jsonDictionary = (try! JSONSerialization.jsonObject(with: jsondata, options: [])) as! NSDictionary
+        for(key, data) in jsonDictionary{
+            if (key as! String == "weather"){
+                var resultArray = data as! NSArray
+                for (eachWether) in resultArray{
+                    var wether:NSDictionary = eachWether as! NSDictionary
+                    self.locationLavel.text = String(describing: wether["main"]!)
+                    self.locationLavel.textColor = UIColor.white
+                    
+                    if String(describing: wether["main"]!)=="Sunny"  {
+                        // UIImageを作成.
+                        let myImage: UIImage = UIImage(named: "sunny.png")!
+                        // 画像をUIImageViewに設定する.
+                        self.WeatherImage.image = myImage
+                        // UIImageViewをViewに追加する
+                        self.view.addSubview(self.WeatherImage)
+                    }
+                    if String(describing: wether["main"]!)=="Clouds"  {
+                        // UIImageを作成.
+                        let myImage: UIImage = UIImage(named: "clouds.png")!
+                        // 画像をUIImageViewに設定する.
+                        self.WeatherImage.image = myImage
+                        // UIImageViewをViewに追加する
+                        self.view.addSubview(self.WeatherImage)
+                    }
+                    if String(describing: wether["main"]!)=="Mist"  {
+                        // UIImageを作成.
+                        let myImage: UIImage = UIImage(named: "mist.png")!
+                        // 画像をUIImageViewに設定する.
+                        self.WeatherImage.image = myImage
+                        // UIImageViewをViewに追加する
+                        self.view.addSubview(self.WeatherImage)
+                    }
+                
+            }
+        }
+//            if (data as! String == "main") {
+//             var result = data as! NSArray
+//                for (eachwether) in result{
+//                    var Wether:NSDictionary = eachwether as! NSDictionary
+//                    self.myLatitudeLabel.text = String(describing:Wether["humidity"])
+//                    self.myLatitudeLabel.textColor = UIColor.white
+//                }
+            //}
+        
+        
+        // Labelを作成.
+        self.locationLavel = UILabel(frame: CGRect(x: 100, y: 120, width: self.bWidth, height: self.bHeight))
+        // Textを中央寄せにする.
+        locationLavel.textAlignment = NSTextAlignment.center
+        //viewに追加
+        self.view.addSubview(locationLavel)
+
         
     }
     
@@ -183,4 +292,4 @@ class SecondViewController: UIViewController,CLLocationManagerDelegate,UINavigat
     }
     */
 
-
+}
