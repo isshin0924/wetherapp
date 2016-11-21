@@ -16,7 +16,7 @@ class SecondViewController: UIViewController,CLLocationManagerDelegate,UINavigat
     
     
     // ベース画像.
-    let myInputImage = CIImage(image: UIImage(named: "wallpaper.jpg")!)
+   // let myInputImage = CIImage(image: UIImage(named: "wallpaper.jpg")!)
     
     // 緯度表示用のラベル.
     var myLatitudeLabel: UILabel!
@@ -47,7 +47,7 @@ class SecondViewController: UIViewController,CLLocationManagerDelegate,UINavigat
         
         //背景画像の設定
         UIGraphicsBeginImageContext(self.view.frame.size)
-        UIImage(named: "wallpaper.jpg")?.draw(in: self.view.bounds)
+        //UIImage(named: "wallpaper.jpg")?.draw(in: self.view.bounds)
         let image: UIImage! = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         self.view.backgroundColor = UIColor(patternImage: image)
@@ -125,10 +125,10 @@ class SecondViewController: UIViewController,CLLocationManagerDelegate,UINavigat
         // 緯度・経度の表示.
         print(manager.location!.coordinate.latitude)
         //myLatitudeLabel.text = "hoge"
-        //myLatitudeLabel.text = "緯度：\(manager.location!.coordinate.latitude)"
+        myLatitudeLabel.text = "緯度：\(manager.location!.coordinate.latitude)"
         //myLatitudeLabel.textAlignment = .center
         print(manager.location!.coordinate.longitude)
-        //myLongitudeLabel.text = "hoge"
+        myLongitudeLabel.text = "hoge"
         myLongitudeLabel.text = "経度：\(manager.location!.coordinate.longitude)"
         //myLongitudeLabel.textAlignment = .center
         
